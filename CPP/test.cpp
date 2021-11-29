@@ -36,7 +36,7 @@ long long calc_fakultaet_recursive(int zahl) {
 	}
 }
 
-int main_a()
+int main()
 {
 	int input = get_int();;
 
