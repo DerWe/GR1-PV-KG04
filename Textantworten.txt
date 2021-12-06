@@ -1,0 +1,19 @@
+B.4.1.5
+
+1. variablenname
+--> Geht, normaler zusammenhängerner, legitimer Name
+
+2. 2be_or_not_to_be
+--> Geht nicht, Es steht eine Zahl am Anfang, das ist ein Problem
+
+3. vorname.nachname
+--> Geht nicht, ein Punkt im Variablennamen ist nicht erlaubt
+
+4. _system
+--> Geht, ein Unterstrich am Anfang ist legitim. System ist hier auch OK
+
+5. #hashtag
+--> geht nicht. # wird anderweitig interpretiert.
+
+6. SiebenMeilenStiefel
+--> Geht, variablennamen sind Case Sensitive
