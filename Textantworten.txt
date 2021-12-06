@@ -18,6 +18,7 @@ B.4.1.5
 6. SiebenMeilenStiefel
 --> Geht, variablennamen sind Case Sensitive
 
+
 B.4.1.6
 
 1. Gleitpunktzahlen		float
@@ -26,3 +27,4 @@ B.4.1.6
 4. Strings				string
 5. Booleschen Werten	bool
 6. Natürlichen Zahlen	unisgned int
+
