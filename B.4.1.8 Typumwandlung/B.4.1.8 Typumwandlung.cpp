@@ -34,6 +34,19 @@ int main()
 	zeichen = static_cast<int>(laenge);
 
 	cout << laenge << " " << l << " " << zeichen << endl;
+
+	/*
+	Das Script nimmt eine Kommazahl mit 2 Nachkommsatellen (double) entgegen. Diese wird dann gerundet und als Ganzzahl (Int) gespeichert.
+	Wenn man die Umwandlung als char "einfach" nimmt und die Warnung nur beseitigt, kann die Kommazahl vorab in eine Ganzzahl konvertiert werden. Diese wird dann als ASCII Zeichen interpretiert.
+
+	Wenn man den Sinn der Zeile andereitig interpretiert, wird es entsprechend komplexer (Angabe des ersten Digit als Char)
+	Um das zu realisieren, hatten wir Anfangs die obige Funktion geschrieben, die dann dur das Erste Zeichen der Zahl als Int zurrückgibt.
+	Diese Lösung kam uns allerdings etwas zu schwer vor, aber man weiß ja nie :)
+
+	In Cout werden die 3 einzelnen Variablen dann alle hintereinander ausgegeben.
+	*/
+
+
 	string messlatte{ "777.77" };
 	// Die Zahl 777.77 wurde als string gespeichert und soll in double konvertiert werden. Allerdings gehört string nicht zu den elementaren Datentypen und wird daher von static_cast nicht unterstützt
 	// Korrektur anstelle des cast eine eingebaute Funktion der Library, bzw. Funktion "string" benutzen --> stod() (stringtodouble)
