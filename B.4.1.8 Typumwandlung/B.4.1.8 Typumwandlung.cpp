@@ -1,18 +1,42 @@
 #include <iostream>
+#include <string>
 using namespace std;
+
+//Gibt das erste digit eines double als int zurrück
+int first_digit_of_double(double input) {
+
+	int input_rounded = static_cast<int>(round(input));							// Rundet die Eingabe und speichert sie als int
+	string input_string = to_string(input_rounded);								// Konvertiert das gerundete Ergebnis zu einem String
+	int input_length = static_cast<int>(input_string.length());					// Berechnet die Länge des gerundeten ints und speichert diese als int
+	double input_exponentialized = input * pow(10, (-1 * (input_length-1)));	// Kommaverschiebung per Exponenten
+
+	int first_digit = static_cast<int>(round(input_exponentialized));			//anschließend runden um nur noch 1 Stelle zu haben
+
+	return first_digit;
+}
 
 int main()
 {
 	int l;
 	double laenge{ 100.05 };
 	char zeichen;
+
 	// Es wird eine Zahl von double in int konvertiert, Double ist eine Kommazahl, die von Int nicht unterstützt wird. Nachkommastellen werden gerundet und weggelassen.
-	l = laenge;
+	// Korrektur: laenge zuerst runden und dann zu int casten
+	// alt: l = laenge;
+	l = static_cast<int>(round(laenge));
+
 	// Es wird eine Zahl von Double in Char konvertiert. Die Ersten 8 Bit werden übernommen. Allerdings wird dadurch der Sinn verfälscht. Es handelt sich nicht mehr um die 1. Stelle der Zahl
-	zeichen = laenge;
+	// alt: zeichen = laenge;
+	// Lösung: Siehe eigene Funtion oberhalb von Main. Das zurrückgegebene int wirs dann an die "0" angefügt, sie dinet als Terminator für das char
+	zeichen =  first_digit_of_double(laenge) + '0';
+	// Alternative: zeichen = '0' + static_cast<int>(laenge);
+
 	cout << laenge << " " << l << " " << zeichen << endl;
 	string messlatte{ "777.77" };
 	// Die Zahl 777.77 wurde als string gespeichert und soll in double konvertiert werden. Allerdings gehört string nicht zu den elementaren Datentypen und wird daher von static_cast nicht unterstützt
-	laenge = static_cast<double>(messlatte);
+	// Korrektur anstelle des cast eine eingebaute Funktion der Library, bzw. Funktion "string" benutzen --> stod() (stringtodouble)
+	// alt: laenge = ststic_cast<double>(messlatte);
+	laenge = stod(messlatte);
 	return 1;
 }
