@@ -27,10 +27,11 @@ int main()
 	l = static_cast<int>(round(laenge));
 
 	// Es wird eine Zahl von Double in Char konvertiert. Die Ersten 8 Bit werden übernommen. Allerdings wird dadurch der Sinn verfälscht. Es handelt sich nicht mehr um die 1. Stelle der Zahl
+	// Korrektur: das Double vorher in int umwandeln. Das int wird dann per ASCII als char interpretiert
 	// alt: zeichen = laenge;
-	// Lösung: Siehe eigene Funtion oberhalb von Main. Das zurrückgegebene int wirs dann an die "0" angefügt, sie dinet als Terminator für das char
-	zeichen =  first_digit_of_double(laenge) + '0';
-	// Alternative: zeichen = '0' + static_cast<int>(laenge);
+	// Alternative Lösung: Siehe eigene Funtion oberhalb von Main. Das zurrückgegebene int wirs dann an die "0" angefügt, sie dinet als Terminator für das char
+	// Alternative Lösung: zeichen =  first_digit_of_double(laenge) + '0';
+	zeichen = static_cast<int>(laenge);
 
 	cout << laenge << " " << l << " " << zeichen << endl;
 	string messlatte{ "777.77" };
