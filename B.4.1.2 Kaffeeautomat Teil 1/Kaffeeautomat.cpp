@@ -12,12 +12,13 @@ int main()
 	//Variablendeklaration
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	char user_input;
+	char user_input_supplements;
 	string user_product;
 	bool user_milk;
 	bool user_zugar;
-	float user_price = 0;
-	float user_payment = 0;
-	float user_payment_change = 0;
+	float user_price;
+	float user_payment;
+	float user_payment_change;
 
 
 	// VorratsVariablen
@@ -35,9 +36,13 @@ int main()
 	const unsigned int used_zugar			= 25;
 
 	//Preise
-	const float cup		= 1.0;
-	const float supplement	= 0.1;
+	const float cup		= 1.0f;
+	const float supplement	= 0.1f;
 
+
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//Dauerschleife, für die UI des Kaffeeautomaten
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	while (true) {
 
@@ -49,7 +54,7 @@ int main()
 		user_payment = 0;
 		user_payment_change = 0;
 
-		//Textausgabe
+		//Textausgabe das Willkommensbildschirms
 		cout << "Herzlich Willkommen beim Kaffee-Automaten!\n"
 			"Preis pro Tasse:\n"
 			"Kaffee oder Espresso: " << cup << " Euro\n"
@@ -60,35 +65,57 @@ int main()
 			"(e) Espresso\n"
 			"(s) Service-Mode\n";
 
-		//cin >> input;
-		//Einlesen der ausgewählten option
+		//cin >> user_input;
+		//Einlesen der ausgewählten option (alternativ, per _getch --> Schöner wenn man kein Enter drücken muss)
 		user_input = _getch();
 
-		//Umwandlung der Auswahl.  Variable in einString und Ausgabe
+		//Umsetzung des eingegebenen Buchstabens zu einem ganzen Wort. Außerdem vorläufigen Preis berechnen
 		switch (user_input)
 		{
-		case 'k':
+		case 'k':	//Kaffee wurde ausgewählt
 			user_product = "Kaffee";
+			user_price += cup;
 			break;
-		case 'e':
+		case 'e':	//Espresso wurde gewählt
 			user_product = "Espresso";
+			user_price += cup;
 			break;
-		case 's':
+		case 's':	//Servicemode wurde gewählt
+			system("cls");
 			user_product = "Service-Mode";
-			break;
-		default:
+			cout << "Service-Interface\n"
+					"-------------------------------------------\n"
+					"Noch vorhandene Mengen:\n"
+					"Kaffee : "<< coffeebeens <<" g Milch: "<< milk <<" ml\n"
+					"Espresso: "<< espressobeens <<" g Wasser: "<< water <<" ml\n"
+					"Zucker: "<< zugar <<" g\n"
+					"-------------------------------------------\n"
+					"Mengen pro Tasse :\n"
+					"Kaffee: "<< used_beens <<" g Milch: "<< used_milk <<" ml\n"
+					"Espresso: "<< used_beens <<" g Wasser fuer Kaffee: "<< used_water_coffee <<" ml\n"
+					"Zucker: "<< used_zugar <<" g Wasser fuer Espresso: "<< used_water_espresso <<" ml\n"
+					"-------------------------------------------\n";
+			system("pause");
+			continue;
+		default:	// Wenn nichts passendes gefunden wurde, breche ab und beginne von vorne
 			cout << "Falsche Eingabe!\n";
 			system("pause");
 			continue;
 		}
 
+		//Bestätigung der Eingabe
 		cout << "Sie haben sich f\x81r die Auswahl " << user_product << " Entschieden\n\n";
+
+		//Auswahlmenü Zucker
 		cout << "M""\x94""chten Sie Zucker (j/n)?\n";
 
-		if (_getch() == 'j') {
+		//Char einlesen und auswerten. Bei falsche Eingabe Schleifendurchgang abbrechen. Außerdem vorläufigen Preis berechnen
+		user_input_supplements = _getch();
+		if (user_input_supplements == 'j') {
 			user_zugar = true;
+			user_price += supplement;
 		}
-		else if (_getch() == 'n') {
+		else if (user_input_supplements == 'n') {
 			user_zugar = false;
 		}
 		else {
@@ -97,12 +124,16 @@ int main()
 			continue;
 		}
 
+		//Auswahlmenü Milch
 		cout << "M""\x94""chten Sie Milch (j/n)?\n";
 
-		if (_getch() == 'j') {
+		//Char einlesen und auswerten. Bei falsche Eingabe Schleifendurchgang abbrechen. Außerdem vorläufigen Preis berechnen
+		user_input_supplements = _getch();
+		if (user_input_supplements == 'j') {
 			user_milk = true;
+			user_price += supplement;
 		}
-		else if (_getch() == 'n') {
+		else if (user_input_supplements == 'n') {
 			user_milk = false;
 		}
 		else {
@@ -111,23 +142,12 @@ int main()
 			continue;
 		}
 
-		if (user_input == 'k') {
-			user_price += cup;
-		}
-		else if (user_input == 'e') {
-			user_price += cup;
-		}
-		if (user_zugar) {
-			user_price += supplement;
-		}
-		if (user_milk) {
-			user_price += supplement;
-		}
-
+		//Endpreis ausgeben und den User nach Geld bitten
 		cout << "Bitte " << user_price << " Euro eingeben und ENTER dr""\x81""cken: ";
 		cin >> user_payment;
 		cout << "\n\n";
 
+		//Eingeschmissenes Geld auswertem --> Schauen ob es Ausreicht. Wenn nicht, Schleifendurchgang abbrechen.
 		if (user_payment >= user_price) {
 			user_payment_change = user_payment - user_price;
 		}
@@ -137,15 +157,15 @@ int main()
 			continue;
 		}
 
+		//Wenn bisher nicht abgebrochen, Getränkeausgabe Ligitimiert
 		cout << "Ihr Getr\x84nk wird zubereitet";
-
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {	//Kleine Spielerei, dass der Zubereitungsprozess simuliert wird (Wartebalken)
 			Sleep(800);
 			cout << ".";
 		}
+		cout << "\n";
 
-		cin << "\n";
-
+		// Die Verbrauchten Zutatenmenge aus dem Bestand nehmen
 		if (user_input == 'k') {
 			coffeebeens -= used_beens;
 			water -= used_water_coffee;
@@ -161,6 +181,7 @@ int main()
 			milk -= used_milk;
 		}
 
+		//Benachrichtigung, dass das Getränk fertig ist & Rückgeld geben
 		cout << "Bitte " << user_payment_change << " Euro R""\x81""ckgeld und das Getr\x84nk entnehmen -:)\n\n";
 		system("pause");
 	}
