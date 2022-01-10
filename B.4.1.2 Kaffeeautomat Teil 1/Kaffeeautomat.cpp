@@ -5,9 +5,40 @@
 
 using namespace std;
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Funktionen definieren
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Funktion für die Authorisierung eines Users
+bool f_authenticate_user(char password[], int password_size) {	//Pointer des Arrays und die länge übergeben
+
+	char user_input[6]{};										//Leeres Array für den Userinput erstellen
+	bool authenticated = false;
+
+	cout << "Bitte geben Sie das Passwort ein:";
+
+	for (int i = 0; i < password_size-1; i++) {					//Schleife, die das Chararray in der passenden länge des Passwords abfragt
+		user_input[i] = _getch();								//Input in chararray speichern
+		cout << "*";
+	}
+
+	for (int i = 0; i < password_size-1; i++) {					//Schleife um die beiden chararrays zu vergleichen
+		if (user_input[i] == password[i]) {						//Übereinstimmung --> Authenticated True
+			authenticated = true;
+		}
+		else {													//Keine Übereinstimmung --> Authenticated false --> break
+			authenticated = false;
+			break;
+		}
+	}
+
+	return authenticated;										//Return Bool ob login erfolgreich oder nicht
+}
+
 //Hauptfunktion
 int main()
 {
+
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Variablendeklaration
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -20,6 +51,9 @@ int main()
 	float user_payment;
 	float user_payment_change;
 
+	// Passwort für den Servicemode
+	char service_password[] = "passwd";
+	int service_password_size = sizeof(service_password) / sizeof(*service_password);
 
 	// VorratsVariablen
 	unsigned int coffeebeens	= 1000;
@@ -83,19 +117,30 @@ int main()
 		case 's':	//Servicemode wurde gewählt
 			system("cls");
 			user_product = "Service-Mode";
-			cout << "Service-Interface\n"
-					"-------------------------------------------\n"
-					"Noch vorhandene Mengen:\n"
-					"Kaffee : "<< coffeebeens <<" g Milch: "<< milk <<" ml\n"
-					"Espresso: "<< espressobeens <<" g Wasser: "<< water <<" ml\n"
-					"Zucker: "<< zugar <<" g\n"
-					"-------------------------------------------\n"
-					"Mengen pro Tasse :\n"
-					"Kaffee: "<< used_beens <<" g Milch: "<< used_milk <<" ml\n"
-					"Espresso: "<< used_beens <<" g Wasser fuer Kaffee: "<< used_water_coffee <<" ml\n"
-					"Zucker: "<< used_zugar <<" g Wasser fuer Espresso: "<< used_water_espresso <<" ml\n"
-					"-------------------------------------------\n";
-			system("pause");
+
+			//Wenn der user Erfolgreich mit der unterfunktion authentifiziert werden konnte
+			if (f_authenticate_user(service_password, service_password_size)) {
+				system("cls");
+				cout << "Service-Interface\n"
+						"-------------------------------------------\n"
+						"Noch vorhandene Mengen:\n"
+						"Kaffee : " << coffeebeens << " g Milch: " << milk << " ml\n"
+						"Espresso: " << espressobeens << " g Wasser: " << water << " ml\n"
+						"Zucker: " << zugar << " g\n"
+						"-------------------------------------------\n"
+						"Mengen pro Tasse :\n"
+						"Kaffee: " << used_beens << " g Milch: " << used_milk << " ml\n"
+						"Espresso: " << used_beens << " g Wasser fuer Kaffee: " << used_water_coffee << " ml\n"
+						"Zucker: " << used_zugar << " g Wasser fuer Espresso: " << used_water_espresso << " ml\n"
+						"-------------------------------------------\n";
+				system("pause");
+			}
+			//Wenn der User nicht authentifiziert werden kann
+			else {
+				system("cls");
+				cout << "Falsches Passwort! Zugang zum Service-Interface verweigert!\n";
+				system("pause");
+			}
 			continue;
 		default:	// Wenn nichts passendes gefunden wurde, breche ab und beginne von vorne
 			cout << "Falsche Eingabe!\n";
