@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.4.2 Schleifen", "B.4.4.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.6 Felder", "B.4.6 Felder\B.4.6 Felder.vcxproj", "{5AF41CDF-CAF4-4CE2-A54C-CA952CE55B13}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.8 Speicherverwaltung mit dem Heap", "B.4.8 Speicherverwaltung mit dem Heap\B.4.8 Speicherverwaltung mit dem Heap.vcxproj", "{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{5AF41CDF-CAF4-4CE2-A54C-CA952CE55B13}.Release|x64.Build.0 = Release|x64
 		{5AF41CDF-CAF4-4CE2-A54C-CA952CE55B13}.Release|x86.ActiveCfg = Release|Win32
 		{5AF41CDF-CAF4-4CE2-A54C-CA952CE55B13}.Release|x86.Build.0 = Release|Win32
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Debug|x64.ActiveCfg = Debug|x64
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Debug|x64.Build.0 = Debug|x64
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Debug|x86.ActiveCfg = Debug|Win32
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Debug|x86.Build.0 = Debug|Win32
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x64.ActiveCfg = Release|x64
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x64.Build.0 = Release|x64
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x86.ActiveCfg = Release|Win32
+		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
