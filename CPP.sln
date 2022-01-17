@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.6 Felder", "B.4.6 Felde
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.8 Speicherverwaltung mit dem Heap", "B.4.8 Speicherverwaltung mit dem Heap\B.4.8 Speicherverwaltung mit dem Heap.vcxproj", "{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.9.2 Berechnung von Kugeloberfläche und Volumen", "B.4.9.2 Berechnung von Kugeloberfläche und Volumen\B.4.9.2 Berechnung von Kugeloberfläche und Volumen.vcxproj", "{CF8E141D-34BF-4529-9549-49AC868A2FE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x64.Build.0 = Release|x64
 		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x86.ActiveCfg = Release|Win32
 		{1F9F787D-7FB2-47E6-88B5-9944562AFFAF}.Release|x86.Build.0 = Release|Win32
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Debug|x64.ActiveCfg = Debug|x64
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Debug|x64.Build.0 = Debug|x64
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Debug|x86.ActiveCfg = Debug|Win32
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Debug|x86.Build.0 = Debug|Win32
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Release|x64.ActiveCfg = Release|x64
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Release|x64.Build.0 = Release|x64
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Release|x86.ActiveCfg = Release|Win32
+		{CF8E141D-34BF-4529-9549-49AC868A2FE8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
