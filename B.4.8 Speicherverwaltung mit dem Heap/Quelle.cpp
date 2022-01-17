@@ -102,6 +102,8 @@ int main() {
 	//Oben geschriebene Funktionen zur Berechnung des Mittelwertes und Varianz verwenden
 	double mittelwert = 0;
 	double varianz = 0;
+
+	//Zusatzfrage: Im Prinzip übergeben wir ja hier die Ganze Zeit schon den neu angelegten Speicherblock. Wir haben hier ja von anfang an die Variable "Messwerte" als Pointer angelegt, wodurch nur der Speicherblock übergeben wurde
 	f_mittelwert_varianz(messwerte, messwerte_size, &mittelwert, &varianz);
 
 	//Array der Messwerte per Funktion ausgeben
