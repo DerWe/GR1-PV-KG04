@@ -63,7 +63,7 @@ void f_mittelwert_varianz(double* werte, int size, double* mittelwert, double* v
 		zwischensumme += pow(werte[i] - *mittelwert, 2);	//Messwert - Mittelwert zum Quadrat aufaddieren
 	}
 
-	*varianz = zwischensumme / (double)size - 1;					//Zwischensumme durch N-1 Teilen
+	*varianz = zwischensumme / ((double)size - 1);					//Zwischensumme durch N-1 Teilen
 
 }
 
