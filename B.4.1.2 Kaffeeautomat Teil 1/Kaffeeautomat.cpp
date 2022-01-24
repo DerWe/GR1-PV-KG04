@@ -5,6 +5,18 @@
 
 using namespace std;
 
+// nur wenn TEST definiert wurde, tut das Makro etwas
+//Das #X steht für den verhandenen code als solchen. mit dem # wird dieser 1:1 genommen, hier eingesetzt und weiterverarbeitet. Dieser kann bei Bedarf erweitert werden.
+//#define TEST
+#ifdef TEST
+#define TESTAUSGABE(X) X												//Führt ein beliebiges testcommand aus
+#define PRINTVARIABLE(X) cout << endl << (#X) << "=" << (X) << endl		//Nimmt eine Variable entgegen und gibt dessen Namen mit ihrem Wert aus
+#define PRINTSTRING(X) cout << endl << X << endl						//Gibt Debug Text aus
+#else
+#define TESTAUSGABE(X)		//Mache nichts
+#define PRINTVARIABLE(X)	//Mache nichts
+#define PRINTSTRING(X)		//Mache nichts
+#endif
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Struct Definition
@@ -43,6 +55,9 @@ bool f_authenticate_user(char password[], int password_size) {	//Pointer des Arr
 	bool authenticated = false;
 
 	cout << "Bitte geben Sie das Passwort ein:";
+
+	PRINTSTRING("Debug mode Aktiv, das Passwort ist das folgende:");	//Debug Output
+	PRINTVARIABLE(password);											//Gibt das Passwort aus, falls der Entwickler es beim Debuggen mal wieder vergessen hat
 
 	for (int i = 0; i < password_size-1; i++) {					//Schleife, die das Chararray in der passenden länge des Passwords abfragt
 		user_input[i] = _getch();								//Input in chararray speichern
@@ -239,12 +254,15 @@ void mengen_aktualisieren(bool bkaffee, bool bmilch, bool bzucker, bool bespress
 	if (bzucker) {
 		pkaffee->zugar -= pkaffee->used_zugar;
 	}
+
+
 }
 //Hauptfunktion
 int main()
 {
 
-	daten stock;
+	//Datenstruktur initial laden
+	daten kaffee;
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Variablendeklaration
@@ -267,9 +285,6 @@ int main()
 	bool herunterfahren = false;
 
 	while (!herunterfahren) {
-
-		//Datenstruktur initial laden
-		daten kaffee;
 
 		//Clearen des User-Interfaces
 		system("cls");
@@ -306,6 +321,13 @@ int main()
 			}
 
 			mengen_aktualisieren(bkaffee, bmilch, bzucker, bespresso, &kaffee);
+
+			PRINTSTRING("Debug mode Aktiv, Verbleibend sind folgende Mengen");	//Debug Output
+			PRINTVARIABLE(kaffee.coffeebeens);									//Gibt die Verbleibenden Mengen im Speicher aus
+			PRINTVARIABLE(kaffee.espressobeens);
+			PRINTVARIABLE(kaffee.milk);
+			PRINTVARIABLE(kaffee.zugar);
+			PRINTVARIABLE(kaffee.water);
 
 			//Wenn bisher nicht abgebrochen, Getränkeausgabe Ligitimiert
 			cout << "Ihr Getr\x84nk wird zubereitet";
