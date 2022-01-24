@@ -35,9 +35,36 @@ bool f_authenticate_user(char password[], int password_size) {	//Pointer des Arr
 	return authenticated;										//Return Bool ob login erfolgreich oder nicht
 }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Struct Definition
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Daten für das Vorratsmanagement und Verbrauchsmanagement
+struct daten {
+	// VorratsVariablen
+	unsigned int coffeebeens = 1000;
+	unsigned int espressobeens = 1000;
+	unsigned int water = 5000;
+	unsigned int milk = 1000;
+	unsigned int zugar = 500;
+
+	// Portionsmengen pro Tasse
+	const unsigned int used_beens = 5;
+	const unsigned int used_water_coffee = 125;
+	const unsigned int used_water_espresso = 25;
+	const unsigned int used_milk = 25;
+	const unsigned int used_zugar = 25;
+
+	//Preise
+	const float cup = 1.0f;
+	const float supplement = 0.1f;
+};
+
 //Hauptfunktion
 int main()
 {
+
+	daten stock;
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Variablendeklaration
@@ -54,25 +81,6 @@ int main()
 	// Passwort für den Servicemode
 	char service_password[] = "passwd";
 	int service_password_size = sizeof(service_password) / sizeof(*service_password);
-
-	// VorratsVariablen
-	unsigned int coffeebeens	= 1000;
-	unsigned int espressobeens	= 1000;
-	unsigned int water			= 5000;
-	unsigned int milk			= 1000;
-	unsigned int zugar			= 500;
-
-	// Portionsmengen pro Tasse
-	const unsigned int used_beens			= 5;
-	const unsigned int used_water_coffee	= 125;
-	const unsigned int used_water_espresso	= 25;
-	const unsigned int used_milk			= 25;
-	const unsigned int used_zugar			= 25;
-
-	//Preise
-	const float cup		= 1.0f;
-	const float supplement	= 0.1f;
-
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Dauerschleife, für die UI des Kaffeeautomaten
@@ -91,8 +99,8 @@ int main()
 		//Textausgabe das Willkommensbildschirms
 		cout << "Herzlich Willkommen beim Kaffee-Automaten!\n"
 			"Preis pro Tasse:\n"
-			"Kaffee oder Espresso: " << cup << " Euro\n"
-			"Milch oder Zucker: " << supplement << " Euro\n\n"
+			"Kaffee oder Espresso: " << stock.cup << " Euro\n"
+			"Milch oder Zucker: " << stock.supplement << " Euro\n\n"
 
 			"Bitte w\x84hlen Sie aus:\n"
 			"(k) Kaffee\n"
@@ -108,11 +116,11 @@ int main()
 		{
 		case 'k':	//Kaffee wurde ausgewählt
 			user_product = "Kaffee";
-			user_price += cup;
+			user_price += stock.cup;
 			break;
 		case 'e':	//Espresso wurde gewählt
 			user_product = "Espresso";
-			user_price += cup;
+			user_price += stock.cup;
 			break;
 		case 's':	//Servicemode wurde gewählt
 			system("cls");
@@ -124,14 +132,14 @@ int main()
 				cout << "Service-Interface\n"
 						"-------------------------------------------\n"
 						"Noch vorhandene Mengen:\n"
-						"Kaffee : " << coffeebeens << " g Milch: " << milk << " ml\n"
-						"Espresso: " << espressobeens << " g Wasser: " << water << " ml\n"
-						"Zucker: " << zugar << " g\n"
+						"Kaffee : " << stock.coffeebeens << " g Milch: " << stock.milk << " ml\n"
+						"Espresso: " << stock.espressobeens << " g Wasser: " << stock.water << " ml\n"
+						"Zucker: " << stock.zugar << " g\n"
 						"-------------------------------------------\n"
 						"Mengen pro Tasse :\n"
-						"Kaffee: " << used_beens << " g Milch: " << used_milk << " ml\n"
-						"Espresso: " << used_beens << " g Wasser fuer Kaffee: " << used_water_coffee << " ml\n"
-						"Zucker: " << used_zugar << " g Wasser fuer Espresso: " << used_water_espresso << " ml\n"
+						"Kaffee: " << stock.used_beens << " g Milch: " << stock.used_milk << " ml\n"
+						"Espresso: " << stock.used_beens << " g Wasser fuer Kaffee: " << stock.used_water_coffee << " ml\n"
+						"Zucker: " << stock.used_zugar << " g Wasser fuer Espresso: " << stock.used_water_espresso << " ml\n"
 						"-------------------------------------------\n";
 				system("pause");
 			}
@@ -158,7 +166,7 @@ int main()
 		user_input_supplements = _getch();
 		if (user_input_supplements == 'j') {
 			user_zugar = true;
-			user_price += supplement;
+			user_price += stock.supplement;
 		}
 		else if (user_input_supplements == 'n') {
 			user_zugar = false;
@@ -176,7 +184,7 @@ int main()
 		user_input_supplements = _getch();
 		if (user_input_supplements == 'j') {
 			user_milk = true;
-			user_price += supplement;
+			user_price += stock.supplement;
 		}
 		else if (user_input_supplements == 'n') {
 			user_milk = false;
@@ -212,18 +220,18 @@ int main()
 
 		// Die Verbrauchten Zutatenmenge aus dem Bestand nehmen
 		if (user_input == 'k') {
-			coffeebeens -= used_beens;
-			water -= used_water_coffee;
+			stock.coffeebeens -= stock.used_beens;
+			stock.water -= stock.used_water_coffee;
 		}
 		else if (user_input == 'e') {
-			espressobeens -= used_beens;
-			water -= used_water_coffee;
+			stock.espressobeens -= stock.used_beens;
+			stock.water -= stock.used_water_coffee;
 		}
 		if (user_zugar) {
-			zugar -= used_milk;
+			stock.zugar -= stock.used_milk;
 		}
 		if (user_milk) {
-			milk -= used_milk;
+			stock.milk -= stock.used_milk;
 		}
 
 		//Benachrichtigung, dass das Getränk fertig ist & Rückgeld geben
