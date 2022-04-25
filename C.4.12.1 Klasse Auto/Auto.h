@@ -8,15 +8,27 @@ class Auto
 {
 private:
 	//Variablendeklaration aller benötigten Variablen
-	unsigned int radzahl { 4 };
-	string farbe { "silber metallic" };
-	unsigned int ps { 100 };
-	unsigned int anzahl_sitze { 5 };
-	float spritverbrauch { 7.0 };
-	float tankinhalt { 10 };
-	float tankgroesse { 50 };
+	unsigned int radzahl;
+	string farbe;
+	unsigned int ps;
+	unsigned int anzahl_sitze;
+	float spritverbrauch;
+	float tankinhalt;
+	float tankgroesse;
 
 public:
+	//Standartkonstruktor
+	Auto()
+	{
+		radzahl = 4;
+		farbe = "silber";
+		ps = 100;
+		anzahl_sitze = 5;
+		spritverbrauch = 7.0;
+		tankinhalt = 10;
+		tankgroesse = 50;
+	}
+
 	//Allgemeiner Konstruktor
 	Auto(unsigned int Radzahl, string Farbe, unsigned int Ps, unsigned int Anzahl_sitze, float Spritverbrauch, float Tankinhalt, float Tankgroesse)
 	{

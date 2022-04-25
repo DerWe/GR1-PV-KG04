@@ -26,12 +26,12 @@ bool Auto::set_tankinhalt(float getankte_liter) {
 //Methode fahren
 float Auto::fahren(float strecke) {
 	//Prüfen ob gewüscnhte Strecke noch gefahren werden kann
-	if ((abs(strecke) * this->spritverbrauch) < this->tankinhalt) {
-		this->tankinhalt -= (abs(strecke) * this->spritverbrauch);
+	if ((abs(strecke) * (this->spritverbrauch/100)) < this->tankinhalt) {
+		this->tankinhalt -= (abs(strecke) * (this->spritverbrauch/100));
 		return abs(strecke);
 	}
 	else
 	{
-		return (this->tankinhalt / this->spritverbrauch);
+		return (this->tankinhalt / (this->spritverbrauch/100));
 	}
 }
