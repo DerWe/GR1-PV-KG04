@@ -17,6 +17,50 @@ private:
 	float tankgroesse;
 
 public:
+
+	//Standartkonstruktor
+	Auto()
+	{
+		radzahl = 4;
+		farbe = "silber";
+		ps = 100;
+		anzahl_sitze = 5;
+		spritverbrauch = 7.0;
+		tankinhalt = 10;
+		tankgroesse = 50;
+	}
+
+	//Allgemeiner Konstruktor
+	Auto(unsigned int Radzahl, string Farbe, unsigned int Ps, unsigned int Anzahl_sitze, float Spritverbrauch, float Tankinhalt, float Tankgroesse)
+	{
+		radzahl = Radzahl;
+		farbe = Farbe;
+		ps = Ps;
+		anzahl_sitze = Anzahl_sitze;
+		spritverbrauch = Spritverbrauch;
+		tankinhalt = Tankinhalt;
+		tankgroesse = Tankgroesse;
+	}
+
+	//Kopierkonstruktor
+	Auto(const Auto& c)
+	{
+		radzahl = c.radzahl;
+		farbe = c.farbe;
+		ps = c.ps;
+		anzahl_sitze = c.anzahl_sitze;
+		spritverbrauch = c.spritverbrauch;
+		tankinhalt = c.tankinhalt;
+		tankgroesse = c.tankgroesse;
+	}
+
+	//Destruktor
+	~Auto()
+	{
+		cout << "Das Auto ist erfolgreich (ausversehen) die Klippe heruntergerollt und ist somit fachgerecht entsorgt :D" << endl;
+	}
+
+
 	//Gettermethoden für alle Variablen
 	unsigned int get_radzahl() const;
 	string get_farbe() const;
