@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+
 using namespace std;
 
 //Prototyp der Klasse "Auto"
@@ -15,15 +16,15 @@ private:
 	float tankinhalt;
 	float tankgroesse;
 
-public: 
+public:
 	//Gettermethoden für alle Variablen
-	unsigned int get_radzahl();
-	string get_farbe();
-	unsigned int get_ps();
-	unsigned int get_anzahl_sitze();
-	float get_spritverbrauch();
-	float get_tankinhalt();
-	float get_tankgroesse();
+	unsigned int get_radzahl() const;
+	string get_farbe() const;
+	unsigned int get_ps() const;
+	unsigned int get_anzahl_sitze() const;
+	float get_spritverbrauch() const;
+	float get_tankinhalt() const;
+	float get_tankgroesse() const;
 
 	//Settermethode für Tankinhalt
 	bool set_tankinhalt(float getankte_liter);
