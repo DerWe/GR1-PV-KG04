@@ -1,5 +1,5 @@
 #include <iostream>
-#include <auto.h>
+#include "auto.h"
 using namespace std;
 
 class Auto
@@ -21,4 +21,28 @@ public:
 	float get_spritverbrauch() const { return spritverbrauch; }
 	float get_tankinhalt() const { return tankinhalt; }
 	float get_tankgroesse() const { return tankgroesse; }
-};
+	
+	//Settermethode für Tankinhalt
+	bool set_tankinhalt(float getankte_liter){
+		//Prüfen ob gewüschte menge noch in den Tank passt
+		if (getankte_liter > 0 and (this->tankinhalt + getankte_liter) <= this->tankgroesse) {
+			this->tankinhalt += getankte_liter;
+			return true;
+		} 
+		else {
+			return false;
+		}
+	}
+	//Methode fahren
+	float fahren(float strecke) {
+		//Prüfen ob gewüscnhte Strecke noch gefahren werden kann
+		if ((abs(strecke) * this->spritverbrauch) < this->tankinhalt) {
+			this->tankinhalt -= (abs(strecke) * this->spritverbrauch);
+			return abs(strecke);
+		}
+		else
+		{
+			return (this->tankinhalt / this->spritverbrauch);
+		}
+	}
+};	
