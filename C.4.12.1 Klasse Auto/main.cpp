@@ -23,7 +23,7 @@ void main() {
 	//Test allgemeiner Konstruktor
 	cout << endl << "SkodaFabia ueber Standartkonstruktor erstellt" << endl;
 	Auto SkodaFabia(4, "schwarz", 69, 5, 7.5, 10, 45);
-	cout << SkodaFabia.get_farbe() << endl; //erwarteter Output: schwarz
+	cout << "Farbe des Auto's: " << SkodaFabia.get_farbe() << endl; //erwarteter Output: schwarz
 
 	//Test allgemeiner Konstruktor auf Heap
 	cout << endl << "Adrianspolo im Heap erstellt und anschliessend direkt geloescht" << endl;
