@@ -4,6 +4,7 @@
 using namespace std;
 
 unsigned int Datum::anzahl_instanzen{ 0 };
+bool Datum::plappermodus{ false };
 
 void main() {
 	Datum heute(02, 05, 2022);

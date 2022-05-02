@@ -11,6 +11,8 @@ private:
 	unsigned int monat;
 	unsigned int jahr;
 	static unsigned int anzahl_instanzen;
+	unsigned int instanznummer;
+	static bool plappermodus;
 
 public:
 
@@ -20,14 +22,36 @@ public:
 		tag = Tag;
 		monat = Monat;
 		jahr = Jahr;
+		instanznummer = anzahl_instanzen;
+
+		if (plappermodus)
+		{
+			cout << "Datumsinstanz Nummer " << this->instanznummer << " wurde erstellt." << endl;
+		}
+
 		if (anzahl_instanzen >= 10) {
 			cout << "Es wurden mehr als 10 Instanzen vom Typ Datum erstellt!" << endl;
 		}
 		anzahl_instanzen++;
 	}
 
+	//Destruktor
+	~Datum() {
+		anzahl_instanzen--;
+		if (plappermodus)
+		{
+			cout << "Datumsinstanz Nummer " << this->instanznummer << " wurde erstellt." << endl;
+		}
+	}
+
 	//Klassenmethode IstSchaltjahr
 	static int IstSchaltjahr(int irgendeinJahr) {
+
+		if (plappermodus)
+		{
+			cout << "Methode IstSchaltjahr() wurde aufgerufen." << endl;
+		}
+
 		if ((irgendeinJahr % 4 == 0) and (irgendeinJahr % 100 != 0) or (irgendeinJahr % 400 == 0))
 		{
 			return 1;
@@ -40,6 +64,12 @@ public:
 
 	//Klassenmethode TagDesJahres
 	int TagDesJahres() {
+
+		if (plappermodus)
+		{
+			cout << "Methode TagDesJahres() der Instanz Nummer " << this->instanznummer <<" wurde aufgerufen." << endl;
+		}
+
 		int tagesanzahl = 0;
 
 		//Alle vollen Monate bis zum Datum Durchlaufen
@@ -82,5 +112,9 @@ public:
 		// Restliche Tage im angefangenen Monat hinzu addieren
 		tagesanzahl += this->tag;
 		return tagesanzahl;
+	}
+
+	static void Plappern(bool flag) {
+		plappermodus = flag;
 	}
 };
