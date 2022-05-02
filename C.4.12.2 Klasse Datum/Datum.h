@@ -41,7 +41,7 @@ public:
 		for (int i_monat = 1; i_monat < this->monat; i_monat++) {
 
 			//Auswerten wie Viele Tage der gerade durchlaufene Monat hat
-			switch (this->monat)
+			switch (i_monat)
 			{
 			//Monate mit 31 Tagen
 			case 1:
@@ -52,6 +52,7 @@ public:
 			case 10:
 			case 12:
 				tagesanzahl += 31;
+				break;
 
 			//Monate mit 30 Tagen
 			case 4:
@@ -59,15 +60,17 @@ public:
 			case 9:
 			case 11:
 				tagesanzahl += 30;
+				break;
 
 			//Separate betrachtung des Februar, aufgrund der Schaltjahresthematik
 			case 2:
 				if (IstSchaltjahr(this->jahr) == 1) {
 					tagesanzahl += 29;
-
+					break;
 				}
 				else {
 					tagesanzahl += 28;
+					break;
 				}
 			}
 		}
