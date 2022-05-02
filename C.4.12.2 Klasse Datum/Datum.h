@@ -23,20 +23,12 @@ public:
 
 	//Klassenmethode IstSchaltjahr
 	static int IstSchaltjahr(int irgendeinJahr) {
-		if ((irgendeinJahr % 4) == 0) {
-			if ((irgendeinJahr % 100) != 0)	{
-				if ((irgendeinJahr % 400) == 0) {
-					return 1;
-				}
-				else {
-					return 0;
-				}
-			}
-			else {
-				return 0;
-			}
+		if ((irgendeinJahr%4 == 0) and (irgendeinJahr%100 != 0) or (irgendeinJahr%400 == 0))
+		{
+			return 1;
 		}
-		else {
+		else
+		{
 			return 0;
 		}
 	}
