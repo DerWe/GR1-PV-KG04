@@ -40,7 +40,7 @@ public:
 		anzahl_instanzen--;
 		if (plappermodus)
 		{
-			cout << "Datumsinstanz Nummer " << this->instanznummer << " wurde erstellt." << endl;
+			cout << "Datumsinstanz Nummer " << this->instanznummer << " wurde gelöscht." << endl;
 		}
 	}
 
