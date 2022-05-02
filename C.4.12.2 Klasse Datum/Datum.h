@@ -10,6 +10,7 @@ private:
 	unsigned int tag;
 	unsigned int monat;
 	unsigned int jahr;
+	static unsigned int anzahl_instanzen;
 
 public:
 
@@ -19,11 +20,15 @@ public:
 		tag = Tag;
 		monat = Monat;
 		jahr = Jahr;
+		if (anzahl_instanzen > 10) {
+			cout << "Es wurden mehr als 10 Instanzen vom Typ Datum erstellt!" << endl;
+		}
+		anzahl_instanzen++;
 	}
 
 	//Klassenmethode IstSchaltjahr
 	static int IstSchaltjahr(int irgendeinJahr) {
-		if ((irgendeinJahr%4 == 0) and (irgendeinJahr%100 != 0) or (irgendeinJahr%400 == 0))
+		if ((irgendeinJahr % 4 == 0) and (irgendeinJahr % 100 != 0) or (irgendeinJahr % 400 == 0))
 		{
 			return 1;
 		}
@@ -43,7 +48,7 @@ public:
 			//Auswerten wie Viele Tage der gerade durchlaufene Monat hat
 			switch (i_monat)
 			{
-			//Monate mit 31 Tagen
+				//Monate mit 31 Tagen
 			case 1:
 			case 3:
 			case 5:
@@ -54,7 +59,7 @@ public:
 				tagesanzahl += 31;
 				break;
 
-			//Monate mit 30 Tagen
+				//Monate mit 30 Tagen
 			case 4:
 			case 6:
 			case 9:
@@ -62,7 +67,7 @@ public:
 				tagesanzahl += 30;
 				break;
 
-			//Separate betrachtung des Februar, aufgrund der Schaltjahresthematik
+				//Separate betrachtung des Februar, aufgrund der Schaltjahresthematik
 			case 2:
 				if (IstSchaltjahr(this->jahr) == 1) {
 					tagesanzahl += 29;
