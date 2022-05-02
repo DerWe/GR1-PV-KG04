@@ -20,7 +20,7 @@ public:
 		tag = Tag;
 		monat = Monat;
 		jahr = Jahr;
-		if (anzahl_instanzen > 10) {
+		if (anzahl_instanzen >= 10) {
 			cout << "Es wurden mehr als 10 Instanzen vom Typ Datum erstellt!" << endl;
 		}
 		anzahl_instanzen++;
