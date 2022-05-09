@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.12.1 Klasse Auto", "C.4
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.12.2 Klasse Datum", "C.4.12.2 Klasse Datum\C.4.12.2 Klasse Datum.vcxproj", "{88353181-EBDA-4B72-960F-ADBD11E96B7C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.12.3 Klasse playlist", "C.4.12.3 Klasse playlist\C.4.12.3 Klasse playlist.vcxproj", "{4973DDBB-F930-415C-B41D-742FDACD6799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{88353181-EBDA-4B72-960F-ADBD11E96B7C}.Release|x64.Build.0 = Release|x64
 		{88353181-EBDA-4B72-960F-ADBD11E96B7C}.Release|x86.ActiveCfg = Release|Win32
 		{88353181-EBDA-4B72-960F-ADBD11E96B7C}.Release|x86.Build.0 = Release|Win32
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Debug|x64.ActiveCfg = Debug|x64
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Debug|x64.Build.0 = Debug|x64
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Debug|x86.ActiveCfg = Debug|Win32
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Debug|x86.Build.0 = Debug|Win32
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Release|x64.ActiveCfg = Release|x64
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Release|x64.Build.0 = Release|x64
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Release|x86.ActiveCfg = Release|Win32
+		{4973DDBB-F930-415C-B41D-742FDACD6799}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
