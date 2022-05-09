@@ -328,6 +328,8 @@ void playlist::PlaylistLaden()
 	// aktuelle Daten loeschen
 	AlleTitelLoeschen();
 
+	struct titel* ptralt{ NULL };
+
 	while (!Quelle.eof())
 	{
 		struct titel* ptr;
@@ -346,8 +348,15 @@ void playlist::PlaylistLaden()
 			getline(Quelle, ptr->interpret);
 			getline(Quelle, hilfe);
 			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str()));
-			ptr->next = start_pointer;
-			start_pointer = ptr;
+
+			if (start_pointer == NULL) {
+				start_pointer = ptr;
+				ptralt = ptr;
+			}
+			else {
+				ptralt->next = ptr;
+			}
+			ptr->next = NULL;
 		}
 	}
 
