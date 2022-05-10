@@ -12,8 +12,10 @@
 #include <string>
 #include "playlist.h"
 #include <fstream>
+#include <time.h>
 
 using namespace std;
+
 
 // Hilfsmethode zur EIngabe eines Titels
 void playlist::BenutzerdatenEingeben(string& titel, string& interpret, mkat& kategorie)
@@ -195,6 +197,48 @@ bool playlist::TitelLoeschen(string Name)
 		return true;
 	}
 }
+
+/*=====================================*/
+void playlist::TitelAbspielen(string Name)
+/*=====================================*/
+{
+	cout << "\a";
+	clock_t startClock = clock();
+	float secondsAhead = 2 * CLOCKS_PER_SEC;
+	// do nothing until the elapsed time has passed.
+	while (clock() < startClock + secondsAhead);
+}
+
+/*=====================================*/
+void playlist::PlaylistAbspielen()
+/*=====================================*/
+
+{
+	/* ptr wird auf den Anfang der Liste gesetzt */
+	struct titel* ptr = start_pointer;
+
+	system("cls");
+	cout << "\n Playlist " << name << " wird abgespielt" << endl << endl;
+
+	if (ptr == NULL) {
+		cout << "Die Playlist ist leer.\n";
+		system("pause");
+	}
+
+	while (ptr != NULL)
+	{
+		/* Ausgabe der playlist */
+		cout << ptr->name << "," << ptr->interpret << ",";
+		cout << enumkat_in_string(ptr->kategorie) << endl;
+		TitelAbspielen(ptr->name);
+		/* pointer auf das nächste Element setzen */
+		ptr = ptr->next;
+	}
+	cout << "\n";
+	system("pause");
+}
+
+
 
 /*=====================================*/
 void playlist::AlleTitelAnzeigen()

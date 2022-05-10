@@ -72,31 +72,48 @@ int main(void)
 			}
 			break;
 		case 5:
-			// Playlist abspielen
-			cout << "noch nicht implementiert" << endl;
-			Sleep(2000);
+			// titel aus Playlist abspielen
+			my_playlist.ZeileEingeben("Bitte den gewünschten Titel der Playlist eingeben:", Titel);
+			if (my_playlist.TitelSuchenundAnzeigen(Titel, Interpret, Kategorie) == false)
+			{
+				cout << "\nDer gesuchte Titel \"" << Titel << "\" wurde nicht gefunden\n";
+				system("pause");
+			}
+			else
+			{
+				cout << Titel << "," << Interpret << ",";
+				cout << my_playlist.enumkat_in_string(Kategorie) << endl;
+				my_playlist.TitelAbspielen(Titel);
+				system("pause");
+			}
 			break;
+
 		case 6:
+			// Playlist abspielen
+			my_playlist.PlaylistAbspielen();
+			break;
+
+		case 7:
 			// Playlist speichern */
 			my_playlist.ZeileEingeben("Bitte den Namen der Playlist eingeben:", temp);
 			my_playlist.set_name(temp);
 			my_playlist.PlaylistSpeichern();
 			break;
-		case 7:
+		case 8:
 			// Playlist laden */
 			my_playlist.ZeileEingeben("Bitte den Namen der Playlist eingeben:",
 				temp);
 			my_playlist.set_name(temp);
 			my_playlist.PlaylistLaden();
 			break;
-		case 8:
+		case 9:
 			break;
 		default:
 			cout << "\nFalsche Eingabe!!!\n";
 			system("pause");
 			break;
 		}
-	} while (eingabe != 8);
+	} while (eingabe != 9);
 
 	return 1;
 }
@@ -114,14 +131,15 @@ int menue(string pl)
 	cout << "\nPlaylisten verwalten " << "\n====================\n\n";
 	cout << "Name der aktuellen Playlist: " << pl << endl;
 	cout << "Sie haben die folgende Auswahl:\n\n";
-	cout << "Neuen Titel einf\x81 \bgen........1\n";
-	cout << "Titel l\x94 \bschen...............2\n";
-	cout << "Alle Titel auflisten........3\n";
-	cout << "Titel suchen und anzeigen...4\n";
-	cout << "Playlist abspielen..........5\n";
-	cout << "Playlist speichern..........6\n";
-	cout << "Playlist laden..............7\n";
-	cout << "Programm beenden............8\n";
+	cout << "Neuen Titel einf\x81 \bgen..........1\n";
+	cout << "Titel l\x94 \bschen.................2\n";
+	cout << "Alle Titel auflisten..........3\n";
+	cout << "Titel suchen und anzeigen.....4\n";
+	cout << "Titel aus Playlist abspielen..5\n";
+	cout << "Playlist abspielen............6\n";
+	cout << "Playlist speichern............7\n";
+	cout << "Playlist laden................8\n";
+	cout << "Programm beenden..............9\n";
 	cout << "\nBitte geben Sie eine Zahl ein:";
 	// Eingabepuffer leeren
 	cin.seekg(0, std::ios::end);

@@ -35,6 +35,8 @@ public:
 	string get_name() const { return name; }
 	void TitelEinfuegen(string Name, string Interpret, mkat Kategorie);
 	bool TitelLoeschen(string Name);
+	void TitelAbspielen(string Name);
+	void PlaylistAbspielen();
 	bool TitelSuchenundAnzeigen(string Name, string& i, mkat& k);
 	void ZeileEingeben(string befehlszeile, string& text);
 	void AlleTitelAnzeigen();
