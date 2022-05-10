@@ -73,7 +73,7 @@ int main(void)
 			break;
 		case 5:
 			// titel aus Playlist abspielen
-			my_playlist.ZeileEingeben("Bitte den gewünschten Titel der Playlist eingeben:", Titel);
+			my_playlist.ZeileEingeben("Bitte den gew\x81nschten Titel der Playlist eingeben:", Titel);
 			if (my_playlist.TitelSuchenundAnzeigen(Titel, Interpret, Kategorie) == false)
 			{
 				cout << "\nDer gesuchte Titel \"" << Titel << "\" wurde nicht gefunden\n";
