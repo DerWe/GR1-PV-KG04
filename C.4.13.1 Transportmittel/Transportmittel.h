@@ -26,3 +26,41 @@ private:
 	double hoehe;
 	double breite;
 };
+
+class LandTransportmittel : Transportmittel
+{
+public:
+	void fahren(double km);
+	void schieben(double km);
+
+	//Getter für alle Variablen
+	double get_radzahl() const;
+
+	//Allgemeiner Konstruktor für beide Klassen
+	LandTransportmittel(double Hoehe, double Breite, int Radzahl) : Transportmittel(Hoehe, Breite)
+	{	
+		radzahl = Radzahl;
+	}
+
+private:
+	int radzahl;
+};
+
+class WasserTransportmittel : Transportmittel
+{
+public:
+	void anlegen(string Anlegehafen);
+	void ablegen(string Ablegehafen);
+
+	//Getter für alle Variablen
+	double get_bruttoregistriertonnen() const;
+
+	//Allgemeiner Konstruktor für beide Klassen
+	WasserTransportmittel(double Hoehe, double Breite, int Bruttoregistriertonnen) : Transportmittel(Hoehe, Breite)
+	{
+		bruttoregistriertonnen = Bruttoregistriertonnen;
+	}
+
+private:
+	double bruttoregistriertonnen;
+};
