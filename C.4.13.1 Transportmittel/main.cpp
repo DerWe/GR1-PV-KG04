@@ -33,7 +33,7 @@ void main() {
 
 	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Wassertransportmittel testen>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-//Test allgemeiner Konstruktor
+	//Test allgemeiner Konstruktor
 	cout << endl << "Wassertransportmittel \x81 \bber allgemeinen Konstruktor erstellt" << endl;
 	WasserTransportmittel Tretboot(2.4, 1.8, 1.7); //es handelt sich hier um einen handelsüblichen Bollerwagen
 
@@ -42,9 +42,70 @@ void main() {
 	cout << "Breite des Tretboot: " << Tretboot.get_breite() << endl;
 	cout << "Bruttoregistriertonnen des Tretboot: " << Tretboot.get_bruttoregistriertonnen() << endl << endl;
 
-	//Test der Methode "fahren"
+	//Test der Methode "ablegen"
 	Tretboot.ablegen("Hamburg");
 
-	//Test der Methode "schieben"
+	//Test der Methode "anlegen"
 	Tretboot.anlegen("Rotterdam");
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Fahrrad testen>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	//Test allgemeiner Konstruktor
+	cout << endl << "Fahrrad \x81 \bber allgemeinen Konstruktor erstellt" << endl;
+	Fahrrad Pedelec(0.8, 0.35, 2, 21); //es handelt sich hier um einen handelsüblichen Bollerwagen
+
+	//Test Gettermethoden
+	cout << "H\x94he des Pedelecs: " << Pedelec.get_hoehe() << endl;
+	cout << "Breite des Pedelecs: " << Pedelec.get_breite() << endl;
+	cout << "Radzahl des Pedelecs: " << Pedelec.get_radzahl() << endl;
+	cout << "Ganganzahl des Pedelecs: " << Pedelec.get_anzahlgaenge() << endl << endl;
+
+	//Test der Methode "freihändigfahren"
+	Pedelec.freihändigfahren("Peter");
+
+	//Test der Methode "schieben"
+	Pedelec.schieben(1.1);
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Rikscha testen>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	//Test allgemeiner Konstruktor
+	cout << endl << "Rikscha \x81 \bber allgemeinen Konstruktor erstellt" << endl;
+	Rikscha Minikutsche(1.5, 1.0, 2, "rot"); //es handelt sich hier um eine handelsüblichen Minikutsche
+
+	//Test Gettermethoden
+	cout << "H\x94he der Minikutsche: " << Minikutsche.get_hoehe() << endl;
+	cout << "Breite der Minikutsche: " << Minikutsche.get_breite() << endl;
+	cout << "Radzahl der Minikutsche: " << Minikutsche.get_radzahl() << endl;
+	cout << "Farbe der Minikutsche: " << Minikutsche.get_farbe() << endl << endl;
+
+	//Test der Methode "ziehen"
+	Minikutsche.ziehen(4);
+
+	//Test der Methode "schieben"
+	Minikutsche.schieben(9.1);
+
+	//Test der geerbten Methode "fahren"
+	Minikutsche.fahren(0.1);
+
+
+	//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Auto testen>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	//Test allgemeiner Konstruktor
+	cout << endl << "Auto \x81 \bber allgemeinen Konstruktor erstellt" << endl;
+	xAuto BMW(1.5, 2.1, 4, 9.5); //es handelt sich hier um einen handelsüblichen BMW
+
+	//Test Gettermethoden
+	cout << "H\x94he des BMW: " << BMW.get_hoehe() << endl;
+	cout << "Breite des BMW: " << BMW.get_breite() << endl;
+	cout << "Radzahl des BMW: " << BMW.get_radzahl() << endl;
+	cout << "Farbe des BMW: " << BMW.get_spritverbrauch() << endl << endl;
+
+	//Test der Methode "ziehen"
+	BMW.tanken(80);
+
+	//Test der Methode "schieben"
+	BMW.schieben(4.1);
+
+	//Test der geerbten Methode "fahren"
+	BMW.fahren(100.93);
 }

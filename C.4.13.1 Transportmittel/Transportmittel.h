@@ -115,7 +115,7 @@ public:
 	}
 };
 
-class Auto : public LandTransportmittel
+class xAuto : public LandTransportmittel
 {
 private:
 	double spritverbrauch;
@@ -131,7 +131,7 @@ public:
 	double get_spritverbrauch() const;
 
 	//Allgemeiner Konstruktor für beide Klassen
-	Auto(double Hoehe, double Breite, int Radzahl, double Spritverbrauch) : LandTransportmittel(Hoehe, Breite, Radzahl)
+	xAuto(double Hoehe, double Breite, int Radzahl, double Spritverbrauch) : LandTransportmittel(Hoehe, Breite, Radzahl)
 	{
 		spritverbrauch = Spritverbrauch;
 	}

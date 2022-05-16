@@ -10,7 +10,7 @@ double LandTransportmittel::get_radzahl() const { return radzahl; }
 double WasserTransportmittel::get_bruttoregistriertonnen() const { return bruttoregistriertonnen; }
 int Fahrrad::get_anzahlgaenge() const { return anzahlgaenge; }
 string Rikscha::get_farbe() const { return farbe; }
-double Auto::get_spritverbrauch() const { return spritverbrauch; }
+double xAuto::get_spritverbrauch() const { return spritverbrauch; }
 
 //Methode "Bewegen"
 void Transportmittel::bewegen(string Richtung) {
@@ -58,11 +58,11 @@ void Rikscha::schieben(double km) {
 }
 
 //Methode "tanken" (Auto)
-void Auto::tanken(int liter) {
+void xAuto::tanken(int liter) {
 	cout << "Weil der Sprit aktuell so g\x81nstig ist, tanke ich " << liter << " Liter." << endl;
 }
 
 //Methode "fahren" (Auto)
-void Auto::fahren(double km) {
+void xAuto::fahren(double km) {
 	cout << "Fahre meinen Kraftfahrzeug " << km << " Kilometer." << endl;
 }
