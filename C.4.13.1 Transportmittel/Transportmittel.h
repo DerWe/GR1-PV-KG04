@@ -27,7 +27,7 @@ private:
 	double breite;
 };
 
-class LandTransportmittel : Transportmittel
+class LandTransportmittel : public Transportmittel
 {
 public:
 	void fahren(double km);
@@ -46,7 +46,7 @@ private:
 	int radzahl;
 };
 
-class WasserTransportmittel : Transportmittel
+class WasserTransportmittel : public Transportmittel
 {
 public:
 	void anlegen(string Anlegehafen);
@@ -56,7 +56,7 @@ public:
 	double get_bruttoregistriertonnen() const;
 
 	//Allgemeiner Konstruktor für beide Klassen
-	WasserTransportmittel(double Hoehe, double Breite, int Bruttoregistriertonnen) : Transportmittel(Hoehe, Breite)
+	WasserTransportmittel(double Hoehe, double Breite, double Bruttoregistriertonnen) : Transportmittel(Hoehe, Breite)
 	{
 		bruttoregistriertonnen = Bruttoregistriertonnen;
 	}

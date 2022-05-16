@@ -31,5 +31,5 @@ void WasserTransportmittel::anlegen(string Anlegehafen) {
 
 //Methode "ablegen" (WasserTransportmittel)
 void WasserTransportmittel::ablegen(string Ablegehafen) {
-	cout << "Lege in  " << Ablegehafen << " ab." << "\t" << "AHOI MATROSE!" << endl;
+	cout << "Lege in  " << Ablegehafen << " ab." << endl << "AHOI MATROSE!" << endl;
 }
