@@ -30,8 +30,11 @@ private:
 class LandTransportmittel : public Transportmittel
 {
 public:
-	void fahren(double km);
-	void schieben(double km);
+	//Methode fahren
+	virtual void fahren(double km);
+
+	//Methode schieben
+	virtual void schieben(double km);
 
 	//Getter für alle Variablen
 	double get_radzahl() const;
@@ -49,7 +52,10 @@ private:
 class WasserTransportmittel : public Transportmittel
 {
 public:
+	//Methode anlegen
 	void anlegen(string Anlegehafen);
+
+	//Methode ablegen
 	void ablegen(string Ablegehafen);
 
 	//Getter für alle Variablen
@@ -63,4 +69,70 @@ public:
 
 private:
 	double bruttoregistriertonnen;
+};
+
+class Fahrrad : public LandTransportmittel
+{
+private:
+	int anzahlgaenge;
+
+public: 
+	//Methode freihändigfahren
+	void freihändigfahren(string name);
+
+	//Methode schieben
+	void schieben(double km) override;
+
+	//Getter für alle Variablen
+	int get_anzahlgaenge() const;
+
+	//Allgemeiner Konstruktor für beide Klassen
+	Fahrrad(double Hoehe, double Breite, int Radzahl, int Anzahlgaenge) : LandTransportmittel(Hoehe, Breite, Radzahl)
+	{
+		anzahlgaenge = Anzahlgaenge;
+	}
+};
+
+class Rikscha : public LandTransportmittel
+{
+private:
+	string farbe;
+
+public:
+	//Methode ziehen
+	void ziehen(int anzahlpersonen);
+
+	//Methode schieben
+	void schieben(double km) override;
+
+	//Getter für alle Variablen
+	string get_farbe() const;
+
+	//Allgemeiner Konstruktor für beide Klassen
+	Rikscha(double Hoehe, double Breite, int Radzahl, string Farbe) : LandTransportmittel(Hoehe, Breite, Radzahl)
+	{
+		farbe = Farbe;
+	}
+};
+
+class Auto : public LandTransportmittel
+{
+private:
+	double spritverbrauch;
+
+public:
+	//Methode tanken
+	void tanken(int liter);
+
+	//Methode fahren
+	void fahren(double km) override;
+
+	//Getter für alle Variablen
+	double get_spritverbrauch() const;
+
+	//Allgemeiner Konstruktor für beide Klassen
+	Auto(double Hoehe, double Breite, int Radzahl, double Spritverbrauch) : LandTransportmittel(Hoehe, Breite, Radzahl)
+	{
+		spritverbrauch = Spritverbrauch;
+	}
 };
