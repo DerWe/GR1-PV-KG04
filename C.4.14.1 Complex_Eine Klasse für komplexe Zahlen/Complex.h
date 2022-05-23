@@ -18,12 +18,20 @@ public:
 	}
 
 	//Gettermethoden für alle Variablen
-	double get_realteil() const;
-	double get_imaginaerteil() const;
+	double get_realteil() {
+		return realteil;
+	}
+	double get_imaginaerteil() {
+		return imaginaerteil;
+	}
 
 	//Settermethoden für Real- und Imaginärteil
-	double set_realteil();
-	double set_imaginaerteil();
+	double set_realteil(double Realteil) {
+		realteil = Realteil;
+	}
+	double set_imaginaerteil(double Imaginaerteil) {
+		imaginaerteil = Imaginaerteil;
+	}
 
 	//Methode Addieren
 	string addieren(double TeilComplex);
