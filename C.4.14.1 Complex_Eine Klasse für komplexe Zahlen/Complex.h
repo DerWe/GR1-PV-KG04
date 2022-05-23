@@ -41,10 +41,19 @@ public:
 		return Complex(realteil - other.realteil, imaginaerteil - other.imaginaerteil);
 	}
 	Complex operator/(Complex& other) {
-		double neu_realteil = (realteil * other.realteil + imaginaerteil * other.imaginaerteil) / (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
-		double neu_imaginaerteil = (imaginaerteil * other.realteil - realteil * other.imaginaerteil)/ (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
+		
+		try {
+			if (other.realteil == 0 and other.imaginaerteil == 0) throw invalid_argument("Real und Imaginaerteil der zweiten Zahl sind = 0");
 
-		return Complex(neu_realteil, neu_imaginaerteil);
+			double neu_realteil = (realteil * other.realteil + imaginaerteil * other.imaginaerteil) / (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
+			double neu_imaginaerteil = (imaginaerteil * other.realteil - realteil * other.imaginaerteil) / (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
+
+			return Complex(neu_realteil, neu_imaginaerteil);
+		}
+		catch(invalid_argument){
+			cout << "Die zweite Zahl ist null, teilen durch null nicht moeglich. Gebe Egebnis 0+0i zurrueck\n";
+			return Complex(0, 0);
+		}
 	}
 
 	friend ostream& operator<<(ostream& os, const Complex& c) {
