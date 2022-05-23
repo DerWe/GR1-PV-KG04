@@ -40,6 +40,12 @@ public:
 	Complex operator-(Complex& other) {
 		return Complex(realteil - other.realteil, imaginaerteil - other.imaginaerteil);
 	}
+	Complex operator/(Complex& other) {
+		double neu_realteil = (realteil * other.realteil + imaginaerteil * other.imaginaerteil) / (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
+		double neu_imaginaerteil = (imaginaerteil * other.realteil - realteil * other.imaginaerteil)/ (pow(other.realteil, 2) + pow(other.imaginaerteil, 2));
+
+		return Complex(neu_realteil, neu_imaginaerteil);
+	}
 
 	friend ostream& operator<<(ostream& os, const Complex& c) {
 		if (c.imaginaerteil >= 0) {

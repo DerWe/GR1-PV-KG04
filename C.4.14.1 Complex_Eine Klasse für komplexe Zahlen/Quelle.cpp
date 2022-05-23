@@ -19,6 +19,8 @@ void main() {
 	c = a - b;
 	cout << "Zahl C Realteil: " << c.get_realteil() << " Imaginaerteil: " << c.get_imaginaerteil() << "\n";
 
+
+
 	cout << "Nun wird per Setter die Zahl a veraendert\n";
 	a.set_realteil(20);
 	a.set_imaginaerteil(-2);
