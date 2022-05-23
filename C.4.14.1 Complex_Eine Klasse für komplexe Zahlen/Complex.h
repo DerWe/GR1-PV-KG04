@@ -26,10 +26,10 @@ public:
 	}
 
 	//Settermethoden für Real- und Imaginärteil
-	double set_realteil(double Realteil) {
+	void set_realteil(double Realteil) {
 		realteil = Realteil;
 	}
-	double set_imaginaerteil(double Imaginaerteil) {
+	void set_imaginaerteil(double Imaginaerteil) {
 		imaginaerteil = Imaginaerteil;
 	}
 
