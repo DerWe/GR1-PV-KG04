@@ -42,11 +42,11 @@ public:
 	}
 
 	friend ostream& operator<<(ostream& os, const Complex& c) {
-		if (c.imaginaerteil <= 0) {
-			os << c.realteil << "+" << c.imaginaerteil;
+		if (c.imaginaerteil >= 0) {
+			os << c.realteil << "+" << c.imaginaerteil << "i";
 		}
 		else {
-			os << c.realteil << c.imaginaerteil;
+			os << c.realteil << c.imaginaerteil << "i";
 		}
 		return os;
 	}

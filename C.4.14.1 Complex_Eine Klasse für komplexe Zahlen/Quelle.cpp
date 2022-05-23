@@ -24,4 +24,15 @@ void main() {
 	a.set_imaginaerteil(-2);
 	cout << "Zahl A Realteil: " << a.get_realteil() << " Imaginaerteil: " << a.get_imaginaerteil() << "\n";
 
+	cout << "Test des ostream: " << c << "\n";
+
+	cout << "Test des istream, bitte zuerst real, dann imaginaerteil eingeben: \n";
+	Complex d = Complex(0, 0);
+	cin >> d;
+	cout << "Zahl D Realteil: " << d.get_realteil() << " Imaginaerteil: " << d.get_imaginaerteil() << "\n";
+
+
+
+
+
 }
