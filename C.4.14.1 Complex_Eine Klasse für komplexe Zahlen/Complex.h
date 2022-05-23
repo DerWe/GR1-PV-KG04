@@ -41,4 +41,20 @@ public:
 		return Complex(realteil - other.realteil, imaginaerteil - other.imaginaerteil);
 	}
 
+	friend ostream& operator<<(ostream& os, const Complex& c) {
+		if (c.imaginaerteil <= 0) {
+			os << c.realteil << "+" << c.imaginaerteil;
+		}
+		else {
+			os << c.realteil << c.imaginaerteil;
+		}
+		return os;
+	}
+
+	friend istream& operator>>(istream& is, Complex& c) {
+			is >> c.realteil >> c.imaginaerteil;
+		return is;
+	}
+
+
 };
