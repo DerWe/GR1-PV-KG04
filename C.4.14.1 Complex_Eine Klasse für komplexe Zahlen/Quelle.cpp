@@ -35,7 +35,11 @@ void main() {
 	cin >> d;
 	cout << "Zahl D Realteil: " << d.get_realteil() << " Imaginaerteil: " << d.get_imaginaerteil() << "\n";
 
-
+	cout << "Nun wird Zahl B auf 0 gesetzt und die Zahlen dann dividiert\n";
+	b.set_realteil(0);
+	b.set_imaginaerteil(0);
+	c = a / b;
+	cout << "Zahl C Realteil: " << c.get_realteil() << " Imaginaerteil: " << c.get_imaginaerteil() << "\n";
 
 
 }
