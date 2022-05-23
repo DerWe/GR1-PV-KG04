@@ -33,7 +33,12 @@ public:
 		imaginaerteil = Imaginaerteil;
 	}
 
-	//Methode Addieren
-	string addieren(double TeilComplex);
-	string subtrahieren(double TeilComplex);
+	//Operatorüberladung zur Berechnung
+	Complex operator+(Complex& other) {
+		return Complex(realteil + other.realteil, imaginaerteil + other.imaginaerteil);
+	}
+	Complex operator-(Complex& other) {
+		return Complex(realteil - other.realteil, imaginaerteil - other.imaginaerteil);
+	}
+
 };
