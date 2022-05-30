@@ -33,7 +33,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.12.3 Klasse playlist", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.13.1 Transportmittel", "C.4.13.1 Transportmittel\C.4.13.1 Transportmittel.vcxproj", "{063DF570-E7F9-47B3-AE88-D06EFB54A651}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.14.1 Complex_Eine Klasse für komplexe Zahlen", "C.4.14.1 Complex_Eine Klasse für komplexe Zahlen\C.4.14.1 Complex_Eine Klasse für komplexe Zahlen.vcxproj", "{6F5D017A-5525-4B10-84BC-DFECE9C4948C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C.4.14.1 Complex", "C.4.14.1 Complex_Eine Klasse für komplexe Zahlen\C.4.14.1 Complex_Eine Klasse für komplexe Zahlen.vcxproj", "{6F5D017A-5525-4B10-84BC-DFECE9C4948C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hausaufgabe 7.1.1 Bitweise Maskierung", "Hausaufgabe 7.1.1 Bitweise Maskierung\Hausaufgabe 7.1.1 Bitweise Maskierung.vcxproj", "{3397B1A0-C8B7-4592-A80B-70563130392F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,14 @@ Global
 		{6F5D017A-5525-4B10-84BC-DFECE9C4948C}.Release|x64.Build.0 = Release|x64
 		{6F5D017A-5525-4B10-84BC-DFECE9C4948C}.Release|x86.ActiveCfg = Release|Win32
 		{6F5D017A-5525-4B10-84BC-DFECE9C4948C}.Release|x86.Build.0 = Release|Win32
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Debug|x64.ActiveCfg = Debug|x64
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Debug|x64.Build.0 = Debug|x64
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Debug|x86.ActiveCfg = Debug|Win32
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Debug|x86.Build.0 = Debug|Win32
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Release|x64.ActiveCfg = Release|x64
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Release|x64.Build.0 = Release|x64
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Release|x86.ActiveCfg = Release|Win32
+		{3397B1A0-C8B7-4592-A80B-70563130392F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
