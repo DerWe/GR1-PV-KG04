@@ -3,12 +3,13 @@
 
 using namespace std;
 
-void main(){
+int main(int argc, char* argv[]) {
 
-	//Eingegebener Buchstabe einlesen und in char speichern
-	char input;
-	cout << "Bitte Gross- oder Kleinbuchstabe eingeben!\n";
-	cin >> input;
+	//Zu Debug Zwecken
+	//cout << argc << *argv[1] << endl;
+
+	//Liest Kommandozeilenparameter ein und legt ihn in input
+	char input = *argv[1];
 
 	//Char zu bonär kontertieren
 	bitset<8> input_binary(input);
