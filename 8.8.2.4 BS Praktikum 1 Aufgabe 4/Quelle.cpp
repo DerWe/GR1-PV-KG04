@@ -9,7 +9,7 @@ using namespace std;
 void count_to_30() {
 	for (int i = 1; i <= 30; i++) {										//for Schleife um bis 30 zu zählen
 		thread::id thread_id = this_thread::get_id();					//thread ID auslesen
-		cout << "Durchlauf: " << i << " Name : " << thread_id << endl;	//Alles in der Konsole ausgeben
+		cout << "Durchlauf: " << i << " Name/ ID : " << thread_id << endl;	//Alles in der Konsole ausgeben
 
 		this_thread::sleep_for(chrono::seconds(1));						//1 Sekunde warten
 	}
