@@ -35,4 +35,6 @@ int main()
     thread t14(increment_counter);
 
     system("pause");
+    /*Man sieht dass die Ausgabe nicht wie gewollte formatiert ist. Der Grund dafür ist, dass aus 2 Threads bitweise in den 
+    gleichen Bereich geschrieben wird. Somit gibt es eine Überlagerung.*/
 }
